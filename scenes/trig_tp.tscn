@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://yoyktk4hpj3a"]
+
+[ext_resource type="Script" path="res://scripts/trig_tp.gd" id="1_8pbjp"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60w1y"]
+size = Vector3(15, 1, 15)
+
+[node name="trig_tp" type="Area3D"]
+script = ExtResource("1_8pbjp")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_60w1y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
