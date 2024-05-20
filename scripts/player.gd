@@ -63,23 +63,24 @@ func _physics_process(delta):
 	else:
 		if not crouch_check_raycast.is_colliding():
 			head.position.y = lerp(head.position.y, STANDING_HEIGHT, delta * CROUCH_SMOOTH)
+			movement_speed = lerp(movement_speed, WALK_SPEED, delta * CROUCH_SMOOTH)
 			standing_collider.disabled = false
 			crouch_collider.disabled = true
 			can_dodge = true
 			is_crouched = false
 		# FAST AS FUCK BOIIIIIIIIII
-		if Input.is_action_pressed("move_sprint"):
-			movement_speed = SPRINT_SPEED
-		else:
-			movement_speed = WALK_SPEED
-	# So with this, we can dodge things now. That's cool.
-	if Input.is_action_just_pressed("move_dodge"):
-		if can_dodge:
-			velocity.x = lerp(velocity.x, move_direction.x * DODGE_AMP, delta * DODGE_SMOOTH)
-			velocity.z = lerp(velocity.z, move_direction.z * DODGE_AMP, delta * DODGE_SMOOTH)
-			can_dodge = false
-			await get_tree().create_timer(DODGE_COOLDOWN).timeout
-			can_dodge = true
+			if Input.is_action_pressed("move_sprint"):
+				movement_speed = SPRINT_SPEED
+			else:
+				movement_speed = WALK_SPEED
+		# So with this, we can dodge things now. That's cool.
+			if Input.is_action_just_pressed("move_dodge"):
+				if can_dodge:
+					velocity.x = lerp(velocity.x, move_direction.x * DODGE_AMP, delta * DODGE_SMOOTH)
+					velocity.z = lerp(velocity.z, move_direction.z * DODGE_AMP, delta * DODGE_SMOOTH)
+					can_dodge = false
+					await get_tree().create_timer(DODGE_COOLDOWN).timeout
+					can_dodge = true
 
 	# If they on the floor, they can run, lol.
 	if is_on_floor():
