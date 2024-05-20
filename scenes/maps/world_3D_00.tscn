@@ -53,6 +53,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 use_collision = true
 size = Vector3(129, 1, 129)
 
+[node name="Ground_009" type="CSGBox3D" parent="Static/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.5, 1.5, -1.5)
+use_collision = true
+size = Vector3(10, 1, 22)
+
 [node name="Ground_001" type="CSGBox3D" parent="Static/Ground"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -128.908, 0.351765, 0)
 use_collision = true
@@ -215,8 +220,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.8716, 1.90735e-06, 45.515
 [node name="box18" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82312, 1.90735e-06, 50.2614)
 
-[node name="box19" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
+[node name="box64" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29538, 1.90735e-06, -0.233658)
+
+[node name="box65" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29538, 1.90735e-06, -2.23366)
+
+[node name="box67" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29538, 1, -1.75107)
+
+[node name="box68" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.29538, 1, -0.751073)
 
 [node name="box20" parent="Dynamic/RandomClutter" instance=ExtResource("2_sfow5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85052, 1.90735e-06, 9.18002)
