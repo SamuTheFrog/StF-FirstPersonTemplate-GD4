@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="GSBox"
-config/version="0.0.1"
+config/name="StF-FirstPersonTemplate-GD4"
+config/version="0.0.6"
 run/main_scene="res://scenes/maps/world_3D_00.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 run/max_fps=600

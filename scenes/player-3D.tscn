@@ -21,15 +21,15 @@ fov = 80.0
 [node name="weapon" type="Node3D" parent="head/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.263226, -0.217393, -0.267221)
 
-[node name="standing_collider" type="CollisionShape3D" parent="."]
+[node name="collider_standing" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_1ntfw")
 
-[node name="crouch_collider" type="CollisionShape3D" parent="."]
+[node name="collider_crouched" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
 shape = SubResource("CapsuleShape3D_aydlg")
 disabled = true
 
-[node name="crouch_check_raycast" type="RayCast3D" parent="."]
+[node name="overhead_raycast" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 target_position = Vector3(0, 1.3, 0)
 hit_from_inside = true
