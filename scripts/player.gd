@@ -1,11 +1,20 @@
 extends CharacterBody3D
 
+
+@onready var head = $head
+@onready var camera = $head/Camera3D
+@onready var fov = "fov"
+@onready var collider_standing = $collider_standing
+@onready var collider_crouched = $collider_crouched
+@onready var overhead_raycast = $overhead_raycast
+
+
 const WALK_SPEED_BASE = 9.0
 const SPRINT_SPEED_AMP = 6.0
 const CROUCH_SPEED_AMP = 6.0
 const STANDING_HEIGHT = 0.6
 const CROUCH_HEIGHT_AMP = 0.9
-const DODGE_AMP = 900.0
+const DODGE_AMP = 600.0
 const DODGE_COOLDOWN = 0.36
 const JUMP_AMP = 9.69
 const DOUBLEJUMP_AMP = 15.0
@@ -16,6 +25,8 @@ const BOB_AMP = 0.06
 const FOV_BASE = 80.0
 const FOV_WARP = 0.3
 
+var fov_tilt : float = 0.6
+
 var movement_speed = 6.0
 var can_doublejump = true
 var can_sprint = true
@@ -23,13 +34,6 @@ var can_dodge = true
 var is_crouched = false
 var hbob = 0.0 # Not entirely sure what this does... but everything breaks without it.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
-@onready var head = $head
-@onready var camera = $head/Camera3D
-@onready var fov = "fov"
-@onready var collider_standing = $collider_standing
-@onready var collider_crouched = $collider_crouched
-@onready var overhead_raycast = $overhead_raycast
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -46,7 +50,7 @@ func _physics_process(delta):
 	var look_direction = Input.get_vector("look_left", "look_right", "look_up", "look_down")
 	var move_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var movement_direction = (head.transform.basis * Vector3(move_dir.x, 0, move_dir.y)).normalized()
-	
+
 	if look_direction:
 		head.rotate_y (look_direction.x * -CONTROLLER_SENSITIVITY)
 		camera.rotate_x (look_direction.y * -CONTROLLER_SENSITIVITY)

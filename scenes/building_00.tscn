@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bcts6hf2g015q"]
 
 [ext_resource type="PackedScene" uid="uid://bhox2uwygrddf" path="res://scenes/box.tscn" id="1_o1jqo"]
-[ext_resource type="Material" uid="uid://bjj0p4insap0l" path="res://materials/mat_white.tres" id="2_vkqnr"]
-[ext_resource type="Material" uid="uid://c2u3t7gsh1w5d" path="res://materials/mat_gray.tres" id="3_jln4w"]
+[ext_resource type="Material" uid="uid://bjj0p4insap0l" path="res://resources/materials/mat_white.tres" id="2_vkqnr"]
+[ext_resource type="Material" uid="uid://c2u3t7gsh1w5d" path="res://resources/materials/mat_gray.tres" id="3_jln4w"]
 
 [node name="Node3D" type="Node3D"]
 
